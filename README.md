@@ -14,6 +14,8 @@ A Flutter desktop application for scanning and displaying local network devices 
 - **MAC Address Lookup:** Look up the MAC address of a specific IP address.
 - **Vendor Lookup:** Look up the vendor information of a specific MAC address.
 - **DNS Lookup:** Look up the DNS name of a specific IP address.
+- **Copy to clipboard:** Copy any result to the clipboard with a click (vendor data, MAC, DNS, etc.)
+- **Open vendor location in Google Maps:** Click any vendor address to open it in Google Maps.
 - **Primary IP Address:** Display the primary IP address of the running machine.
 
 ### Plus:
