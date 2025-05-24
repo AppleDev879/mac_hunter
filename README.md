@@ -3,6 +3,8 @@
 
 A Flutter desktop application for scanning and displaying local network devices by reading the ARP table. Includes a sleek Matrix-style binary background animation. Built with Flutter and Riverpod for state management.
 
+![Demo](https://abarrett-io.nyc3.cdn.digitaloceanspaces.com/interview/mac_hunter_demo.gif)
+
 ---
 
 ## Features
