@@ -11,29 +11,23 @@ class LocalIpWidget extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final localIpAsync = ref.watch(localIpProvider);
 
-    return InkWell(
-      onTap: () {
-        localIpAsync.whenData((localIp) {
-          if (localIp == null) return;
-          Clipboard.setData(ClipboardData(text: localIp));
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text('Copied "$localIp" to clipboard'),
-              duration: const Duration(seconds: 1),
-            ),
-          );
-        });
-      },
-      child: localIpAsync.when(
-        loading: () => const SizedBox(
-          width: 24,
-          height: 24,
-          child: CircularProgressIndicator(strokeWidth: 2),
-        ),
-        error: (e, _) => Text('Error: $e', style: const TextStyle(fontSize: 12)),
-        data: (localIp) => Text(
-          'Local IP: $localIp',
-          style: const TextStyle(fontSize: 16),
+    return Padding(
+      padding: const EdgeInsets.only(right: 8.0),
+      child: InkWell(
+        onTap: () {
+          localIpAsync.whenData((localIp) {
+            if (localIp == null) return;
+            Clipboard.setData(ClipboardData(text: localIp));
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text('Copied "$localIp" to clipboard'), duration: const Duration(seconds: 1)),
+            );
+          });
+        },
+        child: localIpAsync.when(
+          loading: () => const SizedBox(width: 24, height: 24, child: CircularProgressIndicator(strokeWidth: 2)),
+          error: (e, _) => Text('Error: $e', style: const TextStyle(fontSize: 12)),
+          data: (localIp) => Text('Local IP: $localIp', style: const TextStyle(fontSize: 16),
+          ),
         ),
       ),
     );
